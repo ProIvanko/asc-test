@@ -43,7 +43,7 @@
             </div>
             <hr>
             Толщина стен
-            <div class="btnFieldElement">
+            <!-- <div class="btnFieldElement">
                 <button id="btn_7"> 7 </button> 
                 <input type="text" placeholder="" id="text_7" value="380">
             </div>
@@ -51,11 +51,13 @@
             <div class="btnFieldElement">
                 <button id="btn_8"> 8 </button> 
                 <input type="text" placeholder="" id="text_8" value="510">
+            </div> -->
+
+            <div class="btnFieldElement">
+                <button id="btn_7"> + </button> 
+                <input type="range" min="120" max="640" step="130" id="inp_type_range">
+                <p id="inp_type_range_valuy_p">380</p>
             </div>
-
-            <input type="range" min="120" max="640" step="130" id="inp_type_range">
-            <p id="inp_type_range_valuy_p"></p>
-
             <hr>
             Перемычки
             <div class="btnFieldElement">
@@ -123,22 +125,25 @@
                     previewContent += `${text}<br>`
                 }
             previewLabelObject.innerHTML = previewContent;
-
-
         }
+
 
         document.addEventListener('click', event => {
             if (event.target.tagName == ('BUTTON')) {
+
+
                 if (event.target.id == 'btn_clear') {
                     for (let i = 1; i <= 15; i++) {
-                    let textName = `text_${i}`
-                    document.getElementById('previewWindow').innerHTML = ''
-                    // let text = document.getElementById(textName).value = ''
-                    // document.getElementById('previewWindow').innerHTML = 'Значения очищены'
-                    // setTimeout(() => {
-                    //     document.getElementById('previewWindow').innerHTML = ''
-                    // }, 500);
-                }
+                        let textName = `text_${i}`
+                        document.getElementById('previewWindow').innerHTML = ''
+                    }
+                } else if (event.target.id == 'btn_7') {
+                    const previewLabelObject = document.getElementById("previewWindow");
+                    let previewContent = previewLabelObject.innerHTML;
+
+                    previewContent += `Толщина стен: ${document.getElementById("inp_type_range_valuy_p").innerText} мм<br>`
+                    
+                    previewLabelObject.innerHTML = previewContent;
                 } else {
                     previewWindowFilling(event.target.id)
                 }
