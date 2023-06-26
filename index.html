@@ -10,82 +10,88 @@
 <body>
     <div id="mainWindowContent" class="mainWindowContent">
         <div id="buttonField" class="buttonField">
-            Окна
+            Стена
             <div class="btnFieldElement">
                 <button id="btn_1"> 1 </button> 
-                <input type="text" placeholder="Введите номер" id="text_1" value="Однокамерный стеклопакет">
+                <input type="text" placeholder="" id="text_1" value="Кирпич керамический">
             </div>
 
             <div class="btnFieldElement">
                 <button id="btn_2"> 2 </button> 
-                <input type="text" placeholder="Введите номер" id="text_2" value="Двухкамерный стеклопакет">
+                <input type="text" placeholder="" id="text_2" value="Кирпич силикатный">
             </div>
-
+            <hr>
+            Строительный раствор
             <div class="btnFieldElement">
                 <button id="btn_3"> 3 </button> 
-                <input type="text" placeholder="Введите номер" id="text_3" value="Оконный блок из ПВХ-профиля">
+                <input type="text" placeholder="" id="text_3" value="Раствор цементно-песчаный">
             </div>
 
             <div class="btnFieldElement">
                 <button id="btn_4"> 4 </button> 
-                <input type="text" placeholder="Введите номер" id="text_4" value="Деревянный оконный блок">
-            </div>
-
-            <div class="btnFieldElement">
-                <button id="btn_5"> 5 </button> 
-                <input type="text" placeholder="Введите номер" id="text_5"  value="Стеклоблоки">
+                <input type="text" placeholder="" id="text_4" value="Раствор известково-песчаный">
             </div>
             <hr>
-            Покрытие полов
+            Отделка
+            <div class="btnFieldElement">
+                <button id="btn_5"> 5 </button> 
+                <input type="text" placeholder="" id="text_5"  value="Отсутствует">
+            </div>
             <div class="btnFieldElement">
                 <button id="btn_6"> 6 </button> 
-                <input type="text" placeholder="Введите номер" id="text_6" value="Линолеум">
+                <input type="text" placeholder="" id="text_6" value="Штукатурка">
             </div>
-
+            <hr>
+            Толщина стен
             <div class="btnFieldElement">
                 <button id="btn_7"> 7 </button> 
-                <input type="text" placeholder="Введите номер" id="text_7" value="Ковролин">
+                <input type="text" placeholder="" id="text_7" value="380">
             </div>
 
             <div class="btnFieldElement">
                 <button id="btn_8"> 8 </button> 
-                <input type="text" placeholder="Введите номер" id="text_8" value="Бетонное">
+                <input type="text" placeholder="" id="text_8" value="510">
             </div>
 
+            <input type="range" min="120" max="640" step="130" id="inp_type_range">
+            <p id="inp_type_range_valuy_p"></p>
+
+            <hr>
+            Перемычки
             <div class="btnFieldElement">
                 <button id="btn_9"> 9 </button> 
-                <input type="text" placeholder="Введите номер" id="text_9" value="Керамическая плитка">
+                <input type="text" placeholder="" id="text_9" value="Стальные перемычки">
             </div>
 
             <div class="btnFieldElement">
                 <button id="btn_10"> 10 </button> 
-                <input type="text" placeholder="Введите номер" id="text_10" value="Ламинат">
+                <input type="text" placeholder="" id="text_10" value="Железобетонные  перемычки">
             </div>
             <hr>
             Дефекты
             <div class="btnFieldElement">
                 <button id="btn_11"> 11 </button> 
-                <input type="text" placeholder="Введите номер" id="text_11" value="Деформация полов">
+                <input type="text" placeholder="" id="text_11" value="Деструкция кладки стены">
             </div>
 
             <div class="btnFieldElement">
                 <button id="btn_12"> 12 </button> 
-                <input type="text" placeholder="Введите номер" id="text_12" value="Поражение гнилью">
+                <input type="text" placeholder="" id="text_12" value="Выпадение отдельных камней">
             </div>
 
             <div class="btnFieldElement">
                 <button id="btn_13"> 13 </button> 
-                <input type="text" placeholder="Введите номер" id="text_13" value="Образование трещин">
+                <input type="text" placeholder="" id="text_13" value="Образование трещин">
             </div>
 
             <div class="btnFieldElement">
                 <button id="btn_14"> 14 </button> 
-                <input type="text" placeholder="Введите номер" id="text_14" value="Истирание">
+                <input type="text" placeholder="" id="text_14" value="Замачивание">
             </div>
 
             <div class="btnFieldElement">
                 <button id="btn_15"> 15 </button> 
-                <input type="text" placeholder="Введите номер" id="text_15" value="Отсутствие заполнений оконных проемов">
+                <input type="text" placeholder="" id="text_15" value="Коррозия перемычек">
             </div>
             <hr>
             <div class="btnFieldElement">
@@ -139,6 +145,15 @@
 
             }
         })
+
+        function valueInpTypeRange() {
+            var rng = document.getElementById('inp_type_range');
+            var p = document.getElementById('inp_type_range_valuy_p');
+            p.innerHTML = rng.value;
+        }
+        //Навешиваем событие
+        var a = document.getElementById('inp_type_range');
+        a.addEventListener('input', valueInpTypeRange);
     </script>
 </body>
 </html>
