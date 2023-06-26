@@ -1,0 +1,47 @@
+body {
+display: block;
+text-align: center;
+border-color: rgb(176, 250, 250);
+
+}
+
+.mainWindowContent{
+    display: flex;
+    align-items: center;
+    width: 500px;
+    border: solid;
+    border-radius: 5px;
+    border-color: rgb(0, 158, 158);
+}
+
+.buttonField {
+padding: 5px;
+display: block;
+text-align: left;
+width: 400px;
+/* border: solid;
+border-radius: 5px;
+border-color: rgb(0, 158, 158); */
+}
+
+.btnFieldElement{
+    padding-left: 10px;
+    padding-top: 7px;
+    width: 200px;
+    display: flex;
+    
+}
+
+.previewWindow {
+    text-align: left;
+    width: 350px;
+    height: 600px;
+    margin-top: 0px;
+    margin-left: 20px;
+    border: solid;
+    border-radius: 5px;
+    border-color: rgb(0, 158, 158);
+}
+input {
+    width: 280px;
+}

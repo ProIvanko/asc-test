@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Document</title>
+</head>
+<body>
+    <div id="mainWindowContent" class="mainWindowContent">
+        <div id="buttonField" class="buttonField">
+            Окна
+            <div class="btnFieldElement">
+                <button id="btn_1"> 1 </button> 
+                <input type="text" placeholder="Введите номер" id="text_1" value="Однокамерный стеклопакет">
+            </div>
+
+            <div class="btnFieldElement">
+                <button id="btn_2"> 2 </button> 
+                <input type="text" placeholder="Введите номер" id="text_2" value="Двухкамерный стеклопакет">
+            </div>
+
+            <div class="btnFieldElement">
+                <button id="btn_3"> 3 </button> 
+                <input type="text" placeholder="Введите номер" id="text_3" value="Оконный блок из ПВХ-профиля">
+            </div>
+
+            <div class="btnFieldElement">
+                <button id="btn_4"> 4 </button> 
+                <input type="text" placeholder="Введите номер" id="text_4" value="Деревянный оконный блок">
+            </div>
+
+            <div class="btnFieldElement">
+                <button id="btn_5"> 5 </button> 
+                <input type="text" placeholder="Введите номер" id="text_5"  value="Стеклоблоки">
+            </div>
+            <hr>
+            Покрытие полов
+            <div class="btnFieldElement">
+                <button id="btn_6"> 6 </button> 
+                <input type="text" placeholder="Введите номер" id="text_6" value="Линолеум">
+            </div>
+
+            <div class="btnFieldElement">
+                <button id="btn_7"> 7 </button> 
+                <input type="text" placeholder="Введите номер" id="text_7" value="Ковролин">
+            </div>
+
+            <div class="btnFieldElement">
+                <button id="btn_8"> 8 </button> 
+                <input type="text" placeholder="Введите номер" id="text_8" value="Бетонное">
+            </div>
+
+            <div class="btnFieldElement">
+                <button id="btn_9"> 9 </button> 
+                <input type="text" placeholder="Введите номер" id="text_9" value="Керамическая плитка">
+            </div>
+
+            <div class="btnFieldElement">
+                <button id="btn_10"> 10 </button> 
+                <input type="text" placeholder="Введите номер" id="text_10" value="Ламинат">
+            </div>
+            <hr>
+            Дефекты
+            <div class="btnFieldElement">
+                <button id="btn_11"> 11 </button> 
+                <input type="text" placeholder="Введите номер" id="text_11" value="Деформация полов">
+            </div>
+
+            <div class="btnFieldElement">
+                <button id="btn_12"> 12 </button> 
+                <input type="text" placeholder="Введите номер" id="text_12" value="Поражение гнилью">
+            </div>
+
+            <div class="btnFieldElement">
+                <button id="btn_13"> 13 </button> 
+                <input type="text" placeholder="Введите номер" id="text_13" value="Образование трещин">
+            </div>
+
+            <div class="btnFieldElement">
+                <button id="btn_14"> 14 </button> 
+                <input type="text" placeholder="Введите номер" id="text_14" value="Истирание">
+            </div>
+
+            <div class="btnFieldElement">
+                <button id="btn_15"> 15 </button> 
+                <input type="text" placeholder="Введите номер" id="text_15" value="Отсутствие заполнений оконных проемов">
+            </div>
+            <hr>
+            <div class="btnFieldElement">
+                <button id="btn_clear"> Clear </button> 
+            </div>
+
+        </div>
+
+        <div id="previewWindow" class="previewWindow">
+
+        </div>
+    </div>
+    <script>
+        // for (let i = 1; i <= 15; i++) {
+        //             let textName = `text_${i}`
+        //             let text = document.getElementById(textName).value = `Значение ${i}`
+        //         }
+
+        function previewWindowFilling(n){
+            let targerId = n.replace(/[^0-9]/g,"")
+            const previewLabelObject = document.getElementById("previewWindow");
+            let previewContent = previewLabelObject.innerHTML;
+            let btnName = `btn_${targerId}`
+                let textName = `text_${targerId}`
+                let btn = document.getElementById(btnName).innerText
+                let text = document.getElementById(textName).value
+                if (text) {
+                    // previewContent += `Кнопка'${btn}' ==> ${text}<br>`
+                    previewContent += `${text}<br>`
+                }
+            previewLabelObject.innerHTML = previewContent;
+
+
+        }
+
+        document.addEventListener('click', event => {
+            if (event.target.tagName == ('BUTTON')) {
+                if (event.target.id == 'btn_clear') {
+                    for (let i = 1; i <= 15; i++) {
+                    let textName = `text_${i}`
+                    document.getElementById('previewWindow').innerHTML = ''
+                    // let text = document.getElementById(textName).value = ''
+                    // document.getElementById('previewWindow').innerHTML = 'Значения очищены'
+                    // setTimeout(() => {
+                    //     document.getElementById('previewWindow').innerHTML = ''
+                    // }, 500);
+                }
+                } else {
+                    previewWindowFilling(event.target.id)
+                }
+
+            }
+        })
+    </script>
+</body>
+</html>
