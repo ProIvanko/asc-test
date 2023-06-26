@@ -12,7 +12,7 @@
         <div id="buttonField" class="buttonField">
             Стена
             <div class="btnFieldElement">
-                <button id="btn_1"> 1 </button> 
+                <button id="btn_1" > 1 </button> 
                 <input type="text" placeholder="" id="text_1" value="Кирпич керамический">
             </div>
 
@@ -68,6 +68,19 @@
             <div class="btnFieldElement">
                 <button id="btn_10"> 10 </button> 
                 <input type="text" placeholder="" id="text_10" value="Железобетонные  перемычки">
+            </div>
+            <hr>
+
+            Прочностные характеристики 
+            <div class="btnFieldElement">
+                <button id="btn_10_1"> Раствора </button> 
+                <input type="range" min="5" max="60" step="5" id="10_1">
+                <p id="inp_10_1">М35</p>
+            </div>
+            <div class="btnFieldElement">
+                <button id="btn_10_2"> Кирпича </button> 
+                <input type="range" min="5" max="60" step="5" id="10_2">
+                <p id="inp_10_2">М35</p>
             </div>
             <hr>
             Дефекты
@@ -141,10 +154,22 @@
                     const previewLabelObject = document.getElementById("previewWindow");
                     let previewContent = previewLabelObject.innerHTML;
 
-                    previewContent += `Толщина стен: ${document.getElementById("inp_type_range_valuy_p").innerText} мм<br>`
+                    previewContent += `${document.getElementById("inp_type_range_valuy_p").innerText} мм<br>`
                     
                     previewLabelObject.innerHTML = previewContent;
-                } else {
+                } else if (event.target.id == 'btn_10_1') {
+                    const previewLabelObject = document.getElementById("previewWindow");
+                    let previewContent = previewLabelObject.innerHTML;
+
+                    previewContent += `${document.getElementById("inp_10_1").innerText} <br>`    
+                    previewLabelObject.innerHTML = previewContent;
+                } else if (event.target.id == 'btn_10_2') {
+                    const previewLabelObject = document.getElementById("previewWindow");
+                    let previewContent = previewLabelObject.innerHTML;
+
+                    previewContent += `${document.getElementById("inp_10_2").innerText} <br>`    
+                    previewLabelObject.innerHTML = previewContent;
+                }else {
                     previewWindowFilling(event.target.id)
                 }
 
@@ -159,6 +184,26 @@
         //Навешиваем событие
         var a = document.getElementById('inp_type_range');
         a.addEventListener('input', valueInpTypeRange);
+
+        function valueInpTypeRangeRastvor() {
+            var rng = document.getElementById('10_1');
+            var p = document.getElementById('inp_10_1');
+            p.innerHTML = `М${rng.value}`;
+        }
+        //Навешиваем событие
+        var b = document.getElementById('10_1');
+        b.addEventListener('input', valueInpTypeRangeRastvor);
+
+
+        function valueInpTypeRangeKirpich() {
+            var rng = document.getElementById('10_2');
+            var p = document.getElementById('inp_10_2');
+            p.innerHTML = `М${rng.value}`;
+        }
+        //Навешиваем событие
+        var b = document.getElementById('10_2');
+        b.addEventListener('input', valueInpTypeRangeKirpich);
+
     </script>
 </body>
 </html>
